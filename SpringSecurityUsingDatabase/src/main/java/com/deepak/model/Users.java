@@ -15,33 +15,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class Users {
 
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="user_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
 	private int id;
-	
-	@Column(name="is_active")
-	private short isActive;
-	
-	@Column(name="user_email")
+
+	@Column(name = "is_active")
+	private boolean isActive;
+
+	@Column(name = "user_email")
 	private String email;
-	
-	@Column(name="user_firstname")
+
+	@Column(name = "user_firstname")
 	private String firstName;
-	
-	@Column(name="user_lastname")
+
+	@Column(name = "user_lastname")
 	private String lastName;
-	
+
 	private String username;
-	
+
 	private String password;
-	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinTable(name="user_role", joinColumns= @JoinColumn(name="user_id"))
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
 	private Set<Role> roles;
 
 	public int getId() {
@@ -52,11 +51,11 @@ public class Users {
 		this.id = id;
 	}
 
-	public short getIsActive() {
+	public boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(short isActive) {
+	public void setIsActive(boolean isActive) {
 		this.isActive = isActive;
 	}
 
@@ -106,5 +105,18 @@ public class Users {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public Users() {
+	}
+
+	public Users(Users user) {
+		this.email = user.email;
+		this.firstName = user.firstName;
+		this.lastName = user.lastName;
+		this.password = user.password;
+		this.id = user.id;
+		this.isActive = user.isActive;
+		this.roles = user.roles;
 	}
 }
