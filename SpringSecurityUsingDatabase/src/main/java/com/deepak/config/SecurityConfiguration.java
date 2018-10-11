@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.deepak.model.CustomUserDetails;
 import com.deepak.repository.UsersRepository;
 import com.deepak.service.CustomUsersDetailsService;
 
