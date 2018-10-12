@@ -27,8 +27,14 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.scopes("user_info").autoApprove(true);
 	}
 
-	public void configure(AuthorizationServerEndpointsConfigurer endpointsConfigurer) {
-		endpointsConfigurer.authenticationManager(authenticationManager);
+//	@Override
+//	public void configure(AuthorizationServerEndpointsConfigurer endpointsConfigurer) throws Exception {
+//		super.configure(endpointsConfigurer);
+//	}
+	
+	@Override
+	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception  {
+		endpoints.authenticationManager(authenticationManager);
 	}
 
 }

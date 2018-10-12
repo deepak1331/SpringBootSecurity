@@ -29,7 +29,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 	
-	@Bean public RequestContextListener requestContextListener() {
+	@Bean
+	public RequestContextListener requestContextListener() {
 		return new RequestContextListener();
 	}
 
